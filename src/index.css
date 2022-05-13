@@ -5,11 +5,11 @@ body {
 }
 * {
   font-family: "Verdana", cursive, sans-serif;
-  color: #ffffff;
+  color: #000000;
 }
 
 body {
-  background-color: #000000;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@ body {
 }
 
 .app {
-  background-color: #3f60d8;
+  background-color:transparent;
   width: 700px;
   height:250px;
   border-radius: 15px;
@@ -70,8 +70,8 @@ body {
 button {
   width: 100%;
   font-size: 16px;
-  color: #ffffff;
-  background-color: #252d4a;
+  color: #000000;
+  background-color: #252d4a00;
   border-radius: 15px;
   display: flex;
   padding: 5px;

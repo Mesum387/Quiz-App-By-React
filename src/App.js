@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 
 export default function App() {
+	const [abhikaques, setabhikaques] = useState(0);
 	const questions = [
 		{
 			questions: 'What does CSS stand for?',
@@ -41,39 +42,38 @@ export default function App() {
 		},
 	];
 
-	const [currentQuestion, setCurrentQuestion] = useState(0);
-	const [showScore, setShowScore] = useState(false);
-	const [score, setScore] = useState(0);
-
-	const handleAnswerOptionClick = (correctans) => {
+	const [finalscore, setfinalscore] = useState(false);
+	
+	const answeronclick = (correctans) => {
 		if (correctans) {
-			setScore(score + 1);
+			setscr(scr + 1);
 		}
 
-		const nextQuestion = currentQuestion + 1;
+		const nextQuestion = abhikaques + 1;
 		if (nextQuestion < questions.length) {
-			setCurrentQuestion(nextQuestion);
+			setabhikaques(nextQuestion);
 		} else {
-			setShowScore(true);
+			setfinalscore(true);
 		}
 	};
+	const [scr, setscr] = useState(0);
 	return (
 		<div className='app'>
-			{showScore ? (
+			{finalscore ? (
 				<div className='scoring'>
-					You scored {score} out of {questions.length}
+					Your score is {scr} out of {questions.length}
 				</div>
 			) : (
 				<>
 					<div className='allques'>
 						<div className='questionCounting'>
-							<span>Question {currentQuestion + 1}</span>/{questions.length}
+							<span>Question {abhikaques + 1}</span>/{questions.length}
 						</div>
-						<div className='question-text'>{questions[currentQuestion].questions}</div>
+						<div className='question-text'>{questions[abhikaques].questions}</div>
 					</div>
 					<div className='answer-section'>
-						{questions[currentQuestion].optionAnswers.map((answerOption) => (
-							<button onClick={() => handleAnswerOptionClick(answerOption.correctans)}>{answerOption.myanswer}</button>
+						{questions[abhikaques].optionAnswers.map((answerOption) => (
+							<button onClick={() => answeronclick(answerOption.correctans)}>{answerOption.myanswer}</button>
 						))}
 					</div>
 				</>
